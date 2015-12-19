@@ -7,11 +7,11 @@ if($('body').hasClass("instagram")){
 
 (function() {
   jQuery('html,body').animate({scrollTop:0},0);
-  window.url = "https://api.instagram.com/v1/users/self/feed.json?access_token=4756774.1fb234f.ce5b1586fb8b4a11b5cb805b7205fbaa";
-  instagramCall(window.url);
+  window.url = "https://api.instagram.com/v1/users/1368186464/media/recent.json?count=33&access_token=4756774.1fb234f.ce5b1586fb8b4a11b5cb805b7205fbaa";
+  instagramCall(window.url, true);
 })();
 
-function instagramCall(url){
+function instagramCall(url, newsletter){
   $.ajax({
     url: url,
     dataType: 'jsonp'
@@ -19,15 +19,17 @@ function instagramCall(url){
     window.url = data.pagination.next_url;
     var $wrapper = $(".posts");
     $.each(data.data, function( index, value ) {
-      if($(window).width() > 1000){
-        if(index == 4){
-          $wrapper.append($('#newsletter-template').html());
-        }
-      }
-      else{
-          if(index == 3){
+      if(newsletter){
+        if($(window).width() > 1000){
+          if(index == 4){
             $wrapper.append($('#newsletter-template').html());
           }
+        }
+        else{
+            if(index == 3){
+              $wrapper.append($('#newsletter-template').html());
+            }
+        }
       }
       template = addInstagram(value);
     });
@@ -38,16 +40,22 @@ function instagramCall(url){
 }
 
 function addInstagram(value){
+  var img = value.images.low_resolution.url;
+  var link = value.link;
   if($(window).width() > 1000){
     $('.wrapper').removeClass("container-fluid").addClass("container");
-    template = '<div class="col-xs-3 post"><a href="#"><img src="http://placehold.it/300x300" alt="" class="full-width"/></a></div>';
+    template = '<div class="col-xs-3 post"><a href="' + link + '"><img src="' + img  + '" alt="" class="full-width"/></a></div>';
   }else{
     $('.wrapper').removeClass("container").addClass("container-fluid");
-    template = '<div class="col-xs-4 post"><a href="#"><img src="http://placehold.it/300x300" alt="" class="full-width"/></a></div>';
+    template = '<div class="col-xs-4 post"><a href="' + link + '"><img src="' + img  + '" alt="" class="full-width"/></a></div>';
   }
   var $wrapper = $(".posts");
   $wrapper.append(template);
 }
+
+$(".load-more").on("click", function(){
+  instagramCall(window.url, false);
+});
 
 // function parseInstagram(value){
 //   var image, handle, name, template, side;

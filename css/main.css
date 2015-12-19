@@ -145,7 +145,20 @@ img.ri:empty
 .wrapper{
   display: none;
 }
-
+.logo{
+  padding: 10px;
+}
+.btn{
+  height: 25px;
+  border-radius: 10%;
+  border: none;
+  background: black;
+  color: white;
+}
+.text-input{
+  height: 25px;
+  border: none;
+}
 .newsletter-wrapper{
   background: #ccc;
   padding: 10px 20px;
@@ -154,6 +167,10 @@ img.ri:empty
 .newsletter-wrapper span{
   margin-bottom: 10px;
   display: inline-block;
+  font-weight: 300;
+}
+h3{
+  font-weight: 300;
 }
 
 
