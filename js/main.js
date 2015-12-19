@@ -1,4 +1,6 @@
 var template;
+var base_url = "https://parkerbarker-api.herokuapp.com/readingninjas";
+// var base_url = "http://localhost:3000/readingninjas";
 
 if($('body').hasClass("instagram")){
   // $('.loading').hide();
@@ -7,31 +9,19 @@ if($('body').hasClass("instagram")){
 
 (function() {
   jQuery('html,body').animate({scrollTop:0},0);
-  window.url = "https://api.instagram.com/v1/users/1368186464/media/recent.json?count=33&access_token=4756774.1fb234f.ce5b1586fb8b4a11b5cb805b7205fbaa";
-  instagramCall(window.url, true);
+  window.url = base_url;
+  apiCall(window.url, true);
 })();
 
-function instagramCall(url, newsletter){
+function apiCall(url, newsletter){
   $.ajax({
     url: url,
-    dataType: 'jsonp'
+    dataType: 'json'
   }).done(function(data) {
-    window.url = data.pagination.next_url;
-    var $wrapper = $(".posts");
+    window.url = base_url + "?page=" + data.next_page;
     $.each(data.data, function( index, value ) {
-      if(newsletter){
-        if($(window).width() > 1000){
-          if(index == 4){
-            $wrapper.append($('#newsletter-template').html());
-          }
-        }
-        else{
-            if(index == 3){
-              $wrapper.append($('#newsletter-template').html());
-            }
-        }
-      }
-      template = addInstagram(value);
+      if(newsletter){showNewletter(index);}
+      template = addPost(value);
     });
     $('.loading').fadeOut(500, function(){
       $('.wrapper').fadeIn(200);
@@ -40,9 +30,9 @@ function instagramCall(url, newsletter){
   });
 }
 
-function addInstagram(value){
-  var img = value.images.low_resolution.url;
-  var link = value.link;
+function addPost(value){
+  var img = value.image;
+  var link = value.url;
   if($(window).width() > 1000){
     $('.wrapper').removeClass("container-fluid").addClass("container");
     template = '<div class="col-xs-3 post"><a href="' + link + '"><img src="' + img  + '" alt="" class="full-width"/></a></div>';
@@ -57,8 +47,23 @@ function addInstagram(value){
 $(".load-more a").on("click", function(e){
   e.preventDefault();
   $(this).html("Loading...");
-  instagramCall(window.url, false);
+  apiCall(window.url, false);
 });
+
+function showNewletter(index){
+  return false;
+  var $wrapper = $(".posts");
+  if($(window).width() > 1000){
+    if(index == 4){
+      $wrapper.append($('#newsletter-template').html());
+    }
+  }
+  else{
+      if(index == 3){
+        $wrapper.append($('#newsletter-template').html());
+      }
+  }
+}
 
 // function parseInstagram(value){
 //   var image, handle, name, template, side;
