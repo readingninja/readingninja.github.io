@@ -36,6 +36,7 @@ function instagramCall(url, newsletter){
     $('.loading').fadeOut(500, function(){
       $('.wrapper').fadeIn(200);
     });
+    $('.load-more a').html("Load More");
   });
 }
 
@@ -53,7 +54,9 @@ function addInstagram(value){
   $wrapper.append(template);
 }
 
-$(".load-more").on("click", function(){
+$(".load-more a").on("click", function(e){
+  e.preventDefault();
+  $(this).html("Loading...");
   instagramCall(window.url, false);
 });
 
