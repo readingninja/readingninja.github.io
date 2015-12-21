@@ -133,6 +133,9 @@ img.ri:empty
 
 
 /* INSTAGRAM */
+body{
+  margin:0;
+}
 .text-center{
   text-align: center;
 }
@@ -145,29 +148,41 @@ img.ri:empty
 .wrapper{
   display: none;
 }
-.header{
-  margin-bottom: 10px;
-  margin-top: 10px;
+.header-container{
+  width:100%;
+  position:fixed;
+  top:0;
+  left: 0;
+  background: white;
+  z-index: 100;
 }
+.header{
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+.subtext{
+  margin-top: 65px;
 }
 .logo{
   padding: 10px;
 }
 .btn{
-  height: 25px;
-  border-radius: 10%;
+  height: 30px;
   border: none;
   background: black;
   color: white;
 }
 .text-input{
-  height: 25px;
+  height: 30px;
   border: none;
+  padding: 10px;
+  outline: none;
 }
 .newsletter-wrapper{
-  background: #ccc;
+  background: #eee;
   padding: 10px 20px;
   margin-bottom: 10px;
+  padding-bottom: 15px;
 }
 .newsletter-wrapper span{
   margin-bottom: 10px;
@@ -177,6 +192,11 @@ img.ri:empty
 h3{
   font-weight: 300;
   margin: 5px;
+  font-size: 14px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+  line-height: 1.2;
 }
 .load-more{
   text-align: center;

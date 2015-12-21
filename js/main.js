@@ -51,7 +51,6 @@ $(".load-more a").on("click", function(e){
 });
 
 function showNewletter(index){
-  return false;
   var $wrapper = $(".posts");
   if($(window).width() > 1000){
     if(index == 4){
