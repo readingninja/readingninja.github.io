@@ -64,6 +64,24 @@ function showNewletter(index){
   }
 }
 
+$(".header a").on("click", function(e){
+  e.preventDefault();
+  openInsta();
+});
+
+var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+function openInsta(){
+    if(iOS){
+        setTimeout(function (){
+            if(window.document.hasFocus()){
+                window.location = "http://instagram.com/thereadingninja";
+            }
+        }, 1620);
+        window.location = "instagram://user?username=thereadingninja";
+    }else
+        window.location = "http://instagram.com/thereadingninja";
+}
+
 // function parseInstagram(value){
 //   var image, handle, name, template, side;
 //   var last_photo = $('.right .body .photos .photo:last');
