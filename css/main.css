@@ -148,22 +148,6 @@ body{
 .wrapper{
   display: none;
 }
-.header-container{
-  width:100%;
-  position:fixed;
-  top:0;
-  left: 0;
-  background: white;
-  z-index: 100;
-}
-.header{
-  padding-top: 10px;
-  padding-bottom: 5px;
-}
-.subtext{
-  margin-top: 65px;
-  margin-bottom: 5px;
-}
 .logo{
   padding: 10px;
 }
@@ -221,6 +205,39 @@ a.load-more:hover{
 }
 
 
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 767px) {
+  .header-container{
+    width:100%;
+    position:fixed;
+    top:0;
+    left: 0;
+    background: white;
+    z-index: 100;
+  }
+  .header{
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+  .subtext{
+    margin-top: 65px;
+    margin-bottom: 5px;
+  }
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+ }
 
 
 
