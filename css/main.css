@@ -120,7 +120,7 @@ body.index{
 }
 #mc_embed_signup h2{
   font-weight: 300;
-  font-size: 19px;
+  font-size: 18px;
   padding: 0 5px;
 }
 #mc_embed_signup h2 b{
@@ -129,22 +129,23 @@ body.index{
 }
 
 #mc_embed_signup{
-  width: 390px;
+  width: 370px;
   margin: 0 auto;
+  padding: 0 5px;
 }
 #mc_embed_signup #mce-EMAIL{
   float: left;
   background: #ccc;
   border: 0;
-  height: 40px;
+  height: 35px;
   font-size: 19px;
   color: white;
   padding-left: 10px;
-  width: 260px;
+  width: 240px;
 }
 #mc-embedded-subscribe{
   float: left;
-  height: 42px;
+  height: 37px;
   color: white;
   background: black;
   border: none;
