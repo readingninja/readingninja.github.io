@@ -102,16 +102,14 @@ body.index{
   text-align: center;
 }
 
-img.ri
-{
-	position: absolute;
+.ri img{
 	max-width: 80%;
-	top: 10%;
-	left: 10%;
+  max-height: 500px;
 }
 
-img.ri:empty
-{
+.ri{
+  position: absolute;
+  width: 100%;
 	top: 50%;
 	left: 50%;
 	-webkit-transform: translate(-50%, -50%);
@@ -119,6 +117,63 @@ img.ri:empty
 	-ms-transform: translate(-50%, -50%);
 	-o-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
+}
+#mc_embed_signup h2{
+  font-weight: 300;
+  font-size: 19px;
+  padding: 0 5px;
+}
+#mc_embed_signup h2 b{
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#mc_embed_signup{
+  width: 390px;
+  margin: 0 auto;
+}
+#mc_embed_signup #mce-EMAIL{
+  float: left;
+  background: #ccc;
+  border: 0;
+  height: 40px;
+  font-size: 19px;
+  color: white;
+  padding-left: 10px;
+  width: 260px;
+}
+#mc-embedded-subscribe{
+  float: left;
+  height: 42px;
+  color: white;
+  background: black;
+  border: none;
+  text-transform: uppercase;
+  margin-left: 5px;
+  padding:0 10px;
+  font-weight: 100;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #fff;
+    font-weight: 100;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #fff;
+   font-weight: 100;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #fff;
+   font-weight: 100;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #fff;
+   font-weight: 100;
+}
+:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color:    #fff;
+  font-weight: 100;
 }
 
 @media screen and (orientation: portrait) {
